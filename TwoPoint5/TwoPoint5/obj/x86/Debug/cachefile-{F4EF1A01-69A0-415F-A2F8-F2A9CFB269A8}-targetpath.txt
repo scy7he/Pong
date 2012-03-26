@@ -1,5 +1,3 @@
 Content\font1.xnb
 Content\font2.xnb
 Content\logo2.xnb
-Content\baseLevel.xnb
-Content\rocks_0.xnb

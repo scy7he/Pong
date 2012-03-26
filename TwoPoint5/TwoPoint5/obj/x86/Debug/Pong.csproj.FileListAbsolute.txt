@@ -11,3 +11,14 @@ C:\dev\xna 4 resources\pong\TwoPoint5\TwoPoint5\obj\x86\Debug\ResolveAssemblyRef
 C:\dev\xna 4 resources\pong\TwoPoint5\TwoPoint5\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
 C:\dev\xna 4 resources\pong\TwoPoint5\TwoPoint5\obj\x86\Debug\TwoPoint5.exe
 C:\dev\xna 4 resources\pong\TwoPoint5\TwoPoint5\obj\x86\Debug\TwoPoint5.pdb
+C:\Users\che.nxusani\Documents\Visual Studio 2010\Projects\Pong\TwoPoint5\TwoPoint5\bin\x86\Debug\Content\font1.xnb
+C:\Users\che.nxusani\Documents\Visual Studio 2010\Projects\Pong\TwoPoint5\TwoPoint5\bin\x86\Debug\Content\font2.xnb
+C:\Users\che.nxusani\Documents\Visual Studio 2010\Projects\Pong\TwoPoint5\TwoPoint5\bin\x86\Debug\Content\logo2.xnb
+C:\Users\che.nxusani\Documents\Visual Studio 2010\Projects\Pong\TwoPoint5\TwoPoint5\bin\x86\Debug\TwoPoint5.exe
+C:\Users\che.nxusani\Documents\Visual Studio 2010\Projects\Pong\TwoPoint5\TwoPoint5\bin\x86\Debug\TwoPoint5.pdb
+C:\Users\che.nxusani\Documents\Visual Studio 2010\Projects\Pong\TwoPoint5\TwoPoint5\bin\x86\Debug\Jitter.dll
+C:\Users\che.nxusani\Documents\Visual Studio 2010\Projects\Pong\TwoPoint5\TwoPoint5\bin\x86\Debug\Jitter.pdb
+C:\Users\che.nxusani\Documents\Visual Studio 2010\Projects\Pong\TwoPoint5\TwoPoint5\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\che.nxusani\Documents\Visual Studio 2010\Projects\Pong\TwoPoint5\TwoPoint5\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+C:\Users\che.nxusani\Documents\Visual Studio 2010\Projects\Pong\TwoPoint5\TwoPoint5\obj\x86\Debug\TwoPoint5.exe
+C:\Users\che.nxusani\Documents\Visual Studio 2010\Projects\Pong\TwoPoint5\TwoPoint5\obj\x86\Debug\TwoPoint5.pdb
