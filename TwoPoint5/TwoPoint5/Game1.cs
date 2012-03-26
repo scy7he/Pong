@@ -56,6 +56,9 @@ namespace Pong
         public DebugDrawer DebugDrawer { private set; get; }
         Color[] rndColors;
 
+        RigidBody ball;
+
+
 
         public Game1()
         {
@@ -138,9 +141,9 @@ namespace Pong
             // ball
             JVector position = new JVector(0f, 3f, -10f);
             Shape sphereShape = new SphereShape(1.5f);
-            RigidBody ball = new RigidBody(sphereShape);
+            ball = new RigidBody(sphereShape);
             ball.Position = position;
-
+            
             // floor
             //JVector position = new JVector(0f, 3f, -10f);
             Shape boxShape = new BoxShape(new JVector(20f, 1.5f, 40f));
@@ -209,7 +212,43 @@ namespace Pong
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
                 this.Exit();
 
-            player.HandleInput(gameTime);
+
+            
+            KeyboardState keys = Keyboard.GetState();
+           
+
+
+            if (keys.IsKeyDown(Keys.Up))
+            {
+                ball.AddForce(JVector.Forward * 100f);
+            }
+
+            if (keys.IsKeyDown(Keys.Left))
+            {
+                ball.AddForce(JVector.Left * 100f);
+            }
+
+            if (keys.IsKeyDown(Keys.Right))
+            {
+                ball.AddForce(JVector.Right * 100f);
+            }
+
+            if (keys.IsKeyDown(Keys.Down))
+            {
+                ball.AddForce(JVector.Backward * 100f);
+            }
+
+            if (keys.IsKeyDown(Keys.Space))
+            {
+                ball.AddForce(JVector.Up * 100f);
+            }
+
+            if (keys.IsKeyDown(Keys.R))
+            {
+                ball.Position = new JVector(0f, 3f, -10f);
+            }            
+            
+            //player.HandleInput(gameTime);
 
             world.Step(1.0f / 50.0f, true);
 

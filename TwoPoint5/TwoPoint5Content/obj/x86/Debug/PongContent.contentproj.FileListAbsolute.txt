@@ -1,1 +1,2 @@
 C:\dev\xna 4 resources\pong\TwoPoint5\TwoPoint5Content\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\che.nxusani\Documents\Visual Studio 2010\Projects\Pong\TwoPoint5\TwoPoint5Content\obj\x86\Debug\ResolveAssemblyReference.cache
