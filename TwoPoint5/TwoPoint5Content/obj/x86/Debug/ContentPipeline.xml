@@ -1,0 +1,114 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<XnaContent xmlns:Pipeline="Microsoft.Xna.Framework.Content.Pipeline" xmlns:Framework="Microsoft.Xna.Framework" xmlns:Processors="Microsoft.Xna.Framework.Content.Pipeline.Processors">
+  <Asset Type="Pipeline:BuildItemCollection">
+    <Item>
+      <Source>font1.spritefont</Source>
+      <Name>font1</Name>
+      <Importer>FontDescriptionImporter</Importer>
+      <Processor>FontDescriptionProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\dev\xna 4 resources\pong\TwoPoint5\TwoPoint5\bin\x86\Debug\Content\font1.xnb</Output>
+      <Time>2011-12-15T11:09:23.3907901+02:00</Time>
+    </Item>
+    <Item>
+      <Source>font2.spritefont</Source>
+      <Name>font2</Name>
+      <Importer>FontDescriptionImporter</Importer>
+      <Processor>FontDescriptionProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\dev\xna 4 resources\pong\TwoPoint5\TwoPoint5\bin\x86\Debug\Content\font2.xnb</Output>
+      <Time>2011-12-15T11:09:23.3927902+02:00</Time>
+    </Item>
+    <Item>
+      <Source>logo2.png</Source>
+      <Name>logo2</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\dev\xna 4 resources\pong\TwoPoint5\TwoPoint5\bin\x86\Debug\Content\logo2.xnb</Output>
+      <Time>2011-12-15T11:09:23.3947903+02:00</Time>
+    </Item>
+    <Item>
+      <Source>baseLevel.fbx</Source>
+      <Name>baseLevel</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>ModelProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\dev\xna 4 resources\pong\TwoPoint5\TwoPoint5\bin\x86\Debug\Content\baseLevel.xnb</Output>
+      <Time>2011-12-15T12:26:46.1883429+02:00</Time>
+      <Dependency>
+        <Key>obj\x86\Debug\baseLevel_0.xml</Key>
+        <Value>2012-03-26T17:24:10.6363645+02:00</Value>
+      </Dependency>
+      <Request>C:\dev\xna 4 resources\pong\TwoPoint5\TwoPoint5\bin\x86\Debug\Content\rocks_0.xnb</Request>
+    </Item>
+    <Item>
+      <Source>baseLevel.fbx</Source>
+      <Importer>FbxImporter</Importer>
+      <Options>IntermediateFile, DontCacheImportedData</Options>
+      <Output>obj\x86\Debug\baseLevel_0.xml</Output>
+      <Time>2011-12-15T12:26:46.1883429+02:00</Time>
+    </Item>
+    <Item>
+      <Source>rocks.bmp</Source>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Parameters>
+        <Data Key="ColorKeyColor" Type="Framework:Color">FFFF00FF</Data>
+        <Data Key="ColorKeyEnabled" Type="bool">true</Data>
+        <Data Key="TextureFormat" Type="Processors:TextureProcessorOutputFormat">DxtCompressed</Data>
+        <Data Key="GenerateMipmaps" Type="bool">true</Data>
+        <Data Key="ResizeToPowerOfTwo" Type="bool">false</Data>
+        <Data Key="PremultiplyAlpha" Type="bool">true</Data>
+      </Parameters>
+      <Options>None</Options>
+      <Output>C:\dev\xna 4 resources\pong\TwoPoint5\TwoPoint5\bin\x86\Debug\Content\rocks_0.xnb</Output>
+      <Time>2011-10-31T13:26:31.4113854+02:00</Time>
+    </Item>
+    <BuildSuccessful>true</BuildSuccessful>
+    <Settings>
+      <TargetPlatform>Windows</TargetPlatform>
+      <TargetProfile>HiDef</TargetProfile>
+      <BuildConfiguration>Debug</BuildConfiguration>
+      <CompressContent>false</CompressContent>
+      <RootDirectory>C:\dev\xna 4 resources\pong\TwoPoint5\TwoPoint5Content\</RootDirectory>
+      <LoggerRootDirectory>C:\dev\xna 4 resources\pong\TwoPoint5\TwoPoint5\</LoggerRootDirectory>
+      <IntermediateDirectory>C:\dev\xna 4 resources\pong\TwoPoint5\TwoPoint5Content\obj\x86\Debug\</IntermediateDirectory>
+      <OutputDirectory>C:\dev\xna 4 resources\pong\TwoPoint5\TwoPoint5\bin\x86\Debug\Content\</OutputDirectory>
+    </Settings>
+    <Assemblies>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.XImporter.dll</Key>
+        <Value>2010-08-23T12:41:18+02:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.VideoImporters.dll</Key>
+        <Value>2010-08-23T12:41:18+02:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.TextureImporter.dll</Key>
+        <Value>2010-08-23T12:41:18+02:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.FBXImporter.dll</Key>
+        <Value>2010-08-23T12:41:18+02:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.EffectImporter.dll</Key>
+        <Value>2010-08-23T12:41:18+02:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.AudioImporters.dll</Key>
+        <Value>2010-08-23T12:41:18+02:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\dev\xna 4 resources\Jitter Physics 0.1.7.0\Jitter\bin\Debug\Jitter.dll</Key>
+        <Value>2012-01-12T18:46:39.2783562+02:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Windows\Microsoft.Net\assembly\GAC_32\Microsoft.Xna.Framework.Content.Pipeline\v4.0_4.0.0.0__842cf8be1de50553\Microsoft.Xna.Framework.Content.Pipeline.dll</Key>
+        <Value>2010-11-16T18:15:30.84826+02:00</Value>
+      </Assembly>
+    </Assemblies>
+  </Asset>
+</XnaContent>

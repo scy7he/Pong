@@ -1,0 +1,2 @@
+C:\dev\xna 4 resources\TwoPoint5\TwoPoint5\TwoPoint5Content\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\dev\xna 4 resources\pong\TwoPoint5\TwoPoint5Content\obj\x86\Debug\ResolveAssemblyReference.cache
