@@ -57,7 +57,7 @@ namespace Pong
         Color[] rndColors;
 
         RigidBody ball;
-        RigidBody wall1, wall2;
+        RigidBody paddle1, paddle2;
         RigidBody floor;
 
         Random generator = new System.Random();
@@ -100,7 +100,7 @@ namespace Pong
             collisionObjects.Add(body1);
             collisionObjects.Add(body2);
 
-            if (collisionObjects.Contains(ball) && (collisionObjects.Contains(wall1) || collisionObjects.Contains(wall2)))
+            if (collisionObjects.Contains(ball) && (collisionObjects.Contains(paddle1) || collisionObjects.Contains(paddle2)))
             {
                 ball.LinearVelocity = ball.LinearVelocity * 2f;
             }
@@ -177,8 +177,7 @@ namespace Pong
             ball.Material.Restitution = 2.0f;
             ball.Mass = 10f;
             ball.IsStatic = true;
-
-            
+                        
 
             // floor
             Shape boxShape = new BoxShape(new JVector(20f, 1.5f, 40f));
@@ -186,18 +185,18 @@ namespace Pong
             floor.Position = JVector.Zero;
             floor.IsStatic = true;
 
-            
+            // paddles
             Shape box = new BoxShape(new JVector(5f, 5f, 0.5f));
-            wall1 = new RigidBody(box);
-            wall2 = new RigidBody(box);
-            wall1.Position = JVector.Zero - new JVector(0f,0f,20f);
-            wall2.Position = JVector.Zero + new JVector(0f, 0f, 20f);
-            wall1.IsStatic = true;
-            wall2.IsStatic = true;
+            paddle1 = new RigidBody(box);
+            paddle2 = new RigidBody(box);
+            paddle1.Position = JVector.Zero - new JVector(0f,0f,20f);
+            paddle2.Position = JVector.Zero + new JVector(0f, 0f, 20f);
+            paddle1.IsStatic = true;
+            paddle2.IsStatic = true;
 
 
-            world.AddBody(wall1);
-            world.AddBody(wall2);
+            world.AddBody(paddle1);
+            world.AddBody(paddle2);
             world.AddBody(ball);
             world.AddBody(floor);
 
@@ -238,22 +237,13 @@ namespace Pong
             }
         }
 
-        /// <summary>
-        /// UnloadContent will be called once per game and is the place to unload
-        /// all content.
-        /// </summary>
+
         protected override void UnloadContent()
         {
-            // TODO: Unload any non ContentManager content here
         }
 
 
-        /// <summary>
-        /// Allows the game to run logic such as updating the world,
-        /// checking for collisions, gathering input, and playing audio.
-        /// </summary>
-        /// <param name="gameTime">Provides a snapshot of timing values.</param>
-        protected override void Update(GameTime gameTime)
+         protected override void Update(GameTime gameTime)
         {
             // Allows the game to exit
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
@@ -261,16 +251,53 @@ namespace Pong
 
             
             MouseState mouse = Mouse.GetState();
-
             KeyboardState keys = Keyboard.GetState();
 
+            // mouse movement when left-button 
             if (mouse.LeftButton == ButtonState.Pressed)
             {
                 float x = (lastMouse.X - mouse.X) * 0.2f;
                 float y = (lastMouse.Y - mouse.Y) * 0.2f;
 
-                wall2.Position += new JVector(-x, y, 0f);
-                wall1.Position += new JVector(-x, y, 0f);
+                paddle2.Position += new JVector(-x, y, 0f);
+                paddle1.Position += new JVector(-x, y, 0f);
+            }
+
+            // tilt controls for paddles
+            if (keys.IsKeyDown(Keys.Left))
+            {
+                 JMatrix rotated =
+                    Conversion.ToJitterMatrix(Matrix.CreateRotationY(MathHelper.ToRadians(1)));
+
+                 paddle2.Orientation *= rotated;
+                 paddle1.Orientation *= rotated;
+            }
+            
+            if (keys.IsKeyDown(Keys.Right))
+            {
+                JMatrix rotated =
+                   Conversion.ToJitterMatrix(Matrix.CreateRotationY(MathHelper.ToRadians(-1)));
+
+                paddle2.Orientation *= rotated;
+                paddle1.Orientation *= rotated;
+            }
+
+            if (keys.IsKeyDown(Keys.Up))
+            {
+                JMatrix rotated =
+                   Conversion.ToJitterMatrix(Matrix.CreateRotationX(MathHelper.ToRadians(1)));
+
+                paddle2.Orientation *= rotated;
+                paddle1.Orientation *= rotated;
+            }
+
+            if (keys.IsKeyDown(Keys.Down))
+            {
+                JMatrix rotated =
+                   Conversion.ToJitterMatrix(Matrix.CreateRotationX(MathHelper.ToRadians(-1)));
+
+                paddle2.Orientation *= rotated;
+                paddle1.Orientation *= rotated;
             }
 
             
@@ -279,6 +306,7 @@ namespace Pong
                 ball.AddForce(JVector.Up * 100f);
             }
 
+            // ball and paddle-orientation reset
             if (keys.IsKeyDown(Keys.R))
             {
                 ball.IsStatic = false;
@@ -288,6 +316,9 @@ namespace Pong
                 float x_variation = (float)(generator.Next(6000) - 3000);
 
                 ball.AddForce(new JVector(x_variation, 1000f, -10000f));
+
+                paddle1.Orientation = JMatrix.Identity;
+                paddle2.Orientation = JMatrix.Identity;
             }
 
                                     
@@ -389,10 +420,7 @@ namespace Pong
             }
         }
 
-        /// <summary>
-        /// This is called when the game should draw itself.
-        /// </summary>
-        /// <param name="gameTime">Provides a snapshot of timing values.</param>
+    
         protected override void Draw(GameTime gameTime)
         {
             GraphicsDevice.Clear(backgroundColor);
