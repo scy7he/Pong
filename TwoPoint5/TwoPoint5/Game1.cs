@@ -58,8 +58,12 @@ namespace Pong
 
         RigidBody ball;
         RigidBody wall1, wall2;
+        RigidBody floor;
 
         Random generator = new System.Random();
+
+        MouseState lastMouse;
+
 
         public Game1()
         {
@@ -111,6 +115,7 @@ namespace Pong
         /// </summary>
         protected override void Initialize()
         {
+            MouseState lastMouse = Mouse.GetState();
             Camera = new Camera(this);
             // side view:
             //Camera.Position = new Vector3(35f, 20f, 0f);
@@ -157,11 +162,13 @@ namespace Pong
             if (content == null)
                 content = new ContentManager(this.Services, "Content");
             
+            /*
             player = new Player();
 
             world.AddBody(player.body);
+            */
 
-
+            
             // ball
             JVector position = new JVector(0f, 5f, -10f);
             Shape sphereShape = new SphereShape(1.0f);
@@ -171,12 +178,14 @@ namespace Pong
             ball.Mass = 10f;
             ball.IsStatic = true;
 
+            
 
             // floor
             Shape boxShape = new BoxShape(new JVector(20f, 1.5f, 40f));
-            RigidBody floor = new RigidBody(boxShape);
+            floor = new RigidBody(boxShape);
             floor.Position = JVector.Zero;
             floor.IsStatic = true;
+
             
             Shape box = new BoxShape(new JVector(5f, 5f, 0.5f));
             wall1 = new RigidBody(box);
@@ -249,35 +258,22 @@ namespace Pong
             // Allows the game to exit
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
                 this.Exit();
+
             
-            
+            MouseState mouse = Mouse.GetState();
+
             KeyboardState keys = Keyboard.GetState();
-           
 
-            if (keys.IsKeyDown(Keys.Up))
+            if (mouse.LeftButton == ButtonState.Pressed)
             {
-                wall1.Position += JVector.Up * 1f;
-                wall2.Position += JVector.Up * 1f;
+                float x = (lastMouse.X - mouse.X) * 0.2f;
+                float y = (lastMouse.Y - mouse.Y) * 0.2f;
+
+                wall2.Position += new JVector(-x, y, 0f);
+                wall1.Position += new JVector(-x, y, 0f);
             }
 
-            if (keys.IsKeyDown(Keys.Left))
-            {
-                wall1.Position += JVector.Left * -1f;
-                wall2.Position += JVector.Left * -1f;
-            }
-
-            if (keys.IsKeyDown(Keys.Right))
-            {
-                wall1.Position += JVector.Right * -1f;
-                wall2.Position += JVector.Right * -1f;
-            }
-
-            if (keys.IsKeyDown(Keys.Down))
-            {
-                wall1.Position += JVector.Down * 1f;
-                wall2.Position += JVector.Down * 1f;
-            }
-
+            
             if (keys.IsKeyDown(Keys.Space))
             {
                 ball.AddForce(JVector.Up * 100f);
@@ -298,6 +294,8 @@ namespace Pong
             //player.HandleInput(gameTime);
 
             world.Step(1.0f / 50.0f, true);
+
+            lastMouse = mouse;
 
             base.Update(gameTime);
         }
@@ -346,7 +344,7 @@ namespace Pong
         private void AddBodyToDrawList(RigidBody rb)
         {
             //if (rb.Tag is BodyTag && ((BodyTag)rb.Tag) == BodyTag.DontDrawMe) return;
-
+            
             bool isCompoundShape = (rb.Shape is CompoundShape);
 
             if (!isCompoundShape)
