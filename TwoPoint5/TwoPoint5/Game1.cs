@@ -57,6 +57,7 @@ namespace Pong
         Color[] rndColors;
 
         RigidBody ball;
+        RigidBody wall1, wall2;
 
 
 
@@ -66,6 +67,8 @@ namespace Pong
             Content.RootDirectory = "Content";
 
             collisionSystem = new CollisionSystemPersistentSAP();
+            collisionSystem.CollisionDetected += new CollisionDetectedHandler(CollisionDetected);
+            
             world = new World(collisionSystem);
 
             Random rr = new Random();
@@ -86,6 +89,20 @@ namespace Pong
            
         }
 
+        private void CollisionDetected(RigidBody body1, RigidBody body2, JVector point1, JVector point2, JVector normal, float penetration)
+        {
+            // here i add the collision bodies to a list because what comes in as body1 and body2 varies from collision to collision
+            List<RigidBody> collisionObjects = new List<RigidBody>(2);
+            collisionObjects.Add(body1);
+            collisionObjects.Add(body2);
+
+            if (collisionObjects.Contains(ball) && (collisionObjects.Contains(wall1) || collisionObjects.Contains(wall2)))
+            {
+                ball.LinearVelocity = ball.LinearVelocity * 2f;
+            }
+                
+        }
+
         /// <summary>
         /// Allows the game to perform any initialization it needs to before starting to run.
         /// This is where it can query for any required services and load any non-graphic
@@ -95,8 +112,8 @@ namespace Pong
         protected override void Initialize()
         {
             Camera = new Camera(this);
-            Camera.Position = new Vector3(10f, 8f, 0f);
-            Camera.Target = Camera.Position + Vector3.Normalize(new Vector3(7, 4, 5));
+            Camera.Position = new Vector3(35f, 20f, 0f);
+            Camera.Target = Camera.Position + Vector3.Normalize(new Vector3(7, 4, 0));
             this.Components.Add(Camera);
 
             Display = new Display(this);
@@ -139,18 +156,32 @@ namespace Pong
 
 
             // ball
-            JVector position = new JVector(0f, 3f, -10f);
-            Shape sphereShape = new SphereShape(1.5f);
+            JVector position = new JVector(0f, 5f, -10f);
+            Shape sphereShape = new SphereShape(1.0f);
             ball = new RigidBody(sphereShape);
             ball.Position = position;
-            
+            ball.Material.Restitution = 2.0f;
+            ball.Mass = 10f;
+            ball.IsStatic = true;
+
+
             // floor
-            //JVector position = new JVector(0f, 3f, -10f);
             Shape boxShape = new BoxShape(new JVector(20f, 1.5f, 40f));
             RigidBody floor = new RigidBody(boxShape);
             floor.Position = JVector.Zero;
             floor.IsStatic = true;
             
+            Shape box = new BoxShape(new JVector(20f, 20f, 1.5f));
+            wall1 = new RigidBody(box);
+            wall2 = new RigidBody(box);
+            wall1.Position = JVector.Zero - new JVector(0f,0f,20f);
+            wall2.Position = JVector.Zero + new JVector(0f, 0f, 20f);
+            wall1.IsStatic = true;
+            wall2.IsStatic = true;
+
+
+            world.AddBody(wall1);
+            world.AddBody(wall2);
             world.AddBody(ball);
             world.AddBody(floor);
 
@@ -211,8 +242,7 @@ namespace Pong
             // Allows the game to exit
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
                 this.Exit();
-
-
+            
             
             KeyboardState keys = Keyboard.GetState();
            
@@ -245,9 +275,13 @@ namespace Pong
 
             if (keys.IsKeyDown(Keys.R))
             {
-                ball.Position = new JVector(0f, 3f, -10f);
-            }            
-            
+                ball.IsStatic = false;
+                ball.LinearVelocity = JVector.Zero;
+                ball.Position = new JVector(0f, 9f, 18f);
+                ball.AddForce(new JVector(0f, 1000f, -10000f));
+            }
+
+                                    
             //player.HandleInput(gameTime);
 
             world.Step(1.0f / 50.0f, true);

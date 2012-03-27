@@ -1,8 +1,6 @@
 C:\dev\xna 4 resources\pong\TwoPoint5\TwoPoint5\bin\x86\Debug\Content\font1.xnb
 C:\dev\xna 4 resources\pong\TwoPoint5\TwoPoint5\bin\x86\Debug\Content\font2.xnb
 C:\dev\xna 4 resources\pong\TwoPoint5\TwoPoint5\bin\x86\Debug\Content\logo2.xnb
-C:\dev\xna 4 resources\pong\TwoPoint5\TwoPoint5\bin\x86\Debug\Content\baseLevel.xnb
-C:\dev\xna 4 resources\pong\TwoPoint5\TwoPoint5\bin\x86\Debug\Content\rocks_0.xnb
 C:\dev\xna 4 resources\pong\TwoPoint5\TwoPoint5\bin\x86\Debug\TwoPoint5.exe
 C:\dev\xna 4 resources\pong\TwoPoint5\TwoPoint5\bin\x86\Debug\TwoPoint5.pdb
 C:\dev\xna 4 resources\pong\TwoPoint5\TwoPoint5\bin\x86\Debug\Jitter.dll

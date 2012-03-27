@@ -7,8 +7,8 @@
       <Importer>FontDescriptionImporter</Importer>
       <Processor>FontDescriptionProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\che.nxusani\Documents\Visual Studio 2010\Projects\Pong\TwoPoint5\TwoPoint5\bin\x86\Debug\Content\font1.xnb</Output>
-      <Time>2012-03-26T18:11:14.267082+02:00</Time>
+      <Output>C:\dev\xna 4 resources\Pong\TwoPoint5\TwoPoint5\bin\x86\Debug\Content\font1.xnb</Output>
+      <Time>2012-03-26T18:04:11.0766647+02:00</Time>
     </Item>
     <Item>
       <Source>font2.spritefont</Source>
@@ -16,8 +16,8 @@
       <Importer>FontDescriptionImporter</Importer>
       <Processor>FontDescriptionProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\che.nxusani\Documents\Visual Studio 2010\Projects\Pong\TwoPoint5\TwoPoint5\bin\x86\Debug\Content\font2.xnb</Output>
-      <Time>2012-03-26T18:11:14.267082+02:00</Time>
+      <Output>C:\dev\xna 4 resources\Pong\TwoPoint5\TwoPoint5\bin\x86\Debug\Content\font2.xnb</Output>
+      <Time>2012-03-26T18:04:11.0786649+02:00</Time>
     </Item>
     <Item>
       <Source>logo2.png</Source>
@@ -25,8 +25,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\che.nxusani\Documents\Visual Studio 2010\Projects\Pong\TwoPoint5\TwoPoint5\bin\x86\Debug\Content\logo2.xnb</Output>
-      <Time>2012-03-26T18:11:14.267082+02:00</Time>
+      <Output>C:\dev\xna 4 resources\Pong\TwoPoint5\TwoPoint5\bin\x86\Debug\Content\logo2.xnb</Output>
+      <Time>2012-03-26T18:04:11.0796649+02:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
@@ -34,10 +34,10 @@
       <TargetProfile>HiDef</TargetProfile>
       <BuildConfiguration>Debug</BuildConfiguration>
       <CompressContent>false</CompressContent>
-      <RootDirectory>C:\Users\che.nxusani\Documents\Visual Studio 2010\Projects\Pong\TwoPoint5\TwoPoint5Content\</RootDirectory>
-      <LoggerRootDirectory>C:\Users\che.nxusani\Documents\Visual Studio 2010\Projects\Pong\TwoPoint5\TwoPoint5\</LoggerRootDirectory>
-      <IntermediateDirectory>C:\Users\che.nxusani\Documents\Visual Studio 2010\Projects\Pong\TwoPoint5\TwoPoint5Content\obj\x86\Debug\</IntermediateDirectory>
-      <OutputDirectory>C:\Users\che.nxusani\Documents\Visual Studio 2010\Projects\Pong\TwoPoint5\TwoPoint5\bin\x86\Debug\Content\</OutputDirectory>
+      <RootDirectory>C:\dev\xna 4 resources\Pong\TwoPoint5\TwoPoint5Content\</RootDirectory>
+      <LoggerRootDirectory>C:\dev\xna 4 resources\Pong\TwoPoint5\TwoPoint5\</LoggerRootDirectory>
+      <IntermediateDirectory>C:\dev\xna 4 resources\Pong\TwoPoint5\TwoPoint5Content\obj\x86\Debug\</IntermediateDirectory>
+      <OutputDirectory>C:\dev\xna 4 resources\Pong\TwoPoint5\TwoPoint5\bin\x86\Debug\Content\</OutputDirectory>
     </Settings>
     <Assemblies>
       <Assembly>
@@ -65,12 +65,12 @@
         <Value>2010-08-23T12:41:18+02:00</Value>
       </Assembly>
       <Assembly>
-        <Key>C:\Users\che.nxusani\Documents\Visual Studio 2010\Projects\Jitter Physics 0.1.7.0\Jitter\bin\Debug\Jitter.dll</Key>
-        <Value>2011-12-13T10:52:36+02:00</Value>
+        <Key>C:\dev\xna 4 resources\Jitter Physics 0.1.7.0\Jitter\bin\Debug\Jitter.dll</Key>
+        <Value>2012-01-12T18:46:39.2783562+02:00</Value>
       </Assembly>
       <Assembly>
         <Key>C:\Windows\Microsoft.Net\assembly\GAC_32\Microsoft.Xna.Framework.Content.Pipeline\v4.0_4.0.0.0__842cf8be1de50553\Microsoft.Xna.Framework.Content.Pipeline.dll</Key>
-        <Value>2012-03-26T17:18:52.5716598+02:00</Value>
+        <Value>2010-11-16T18:15:30.84826+02:00</Value>
       </Assembly>
     </Assemblies>
   </Asset>
