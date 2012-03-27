@@ -59,7 +59,7 @@ namespace Pong
         RigidBody ball;
         RigidBody wall1, wall2;
 
-
+        Random generator = new System.Random();
 
         public Game1()
         {
@@ -112,8 +112,15 @@ namespace Pong
         protected override void Initialize()
         {
             Camera = new Camera(this);
-            Camera.Position = new Vector3(35f, 20f, 0f);
-            Camera.Target = Camera.Position + Vector3.Normalize(new Vector3(7, 4, 0));
+            // side view:
+            //Camera.Position = new Vector3(35f, 20f, 0f);
+            //Camera.Target = Camera.Position + Vector3.Normalize(new Vector3(7, 4, 0));
+
+            // front view:
+            // NOTE: i can't seem to get it looking behind wall1, so we're looking behind wall2
+            Camera.Position = new Vector3(0f, 17f, 36f);
+            Camera.Target = Camera.Position + Vector3.Normalize(new Vector3(0, 4, 7));
+
             this.Components.Add(Camera);
 
             Display = new Display(this);
@@ -171,7 +178,7 @@ namespace Pong
             floor.Position = JVector.Zero;
             floor.IsStatic = true;
             
-            Shape box = new BoxShape(new JVector(20f, 20f, 1.5f));
+            Shape box = new BoxShape(new JVector(5f, 5f, 0.5f));
             wall1 = new RigidBody(box);
             wall2 = new RigidBody(box);
             wall1.Position = JVector.Zero - new JVector(0f,0f,20f);
@@ -247,25 +254,28 @@ namespace Pong
             KeyboardState keys = Keyboard.GetState();
            
 
-
             if (keys.IsKeyDown(Keys.Up))
             {
-                ball.AddForce(JVector.Forward * 100f);
+                wall1.Position += JVector.Up * 1f;
+                wall2.Position += JVector.Up * 1f;
             }
 
             if (keys.IsKeyDown(Keys.Left))
             {
-                ball.AddForce(JVector.Left * 100f);
+                wall1.Position += JVector.Left * -1f;
+                wall2.Position += JVector.Left * -1f;
             }
 
             if (keys.IsKeyDown(Keys.Right))
             {
-                ball.AddForce(JVector.Right * 100f);
+                wall1.Position += JVector.Right * -1f;
+                wall2.Position += JVector.Right * -1f;
             }
 
             if (keys.IsKeyDown(Keys.Down))
             {
-                ball.AddForce(JVector.Backward * 100f);
+                wall1.Position += JVector.Down * 1f;
+                wall2.Position += JVector.Down * 1f;
             }
 
             if (keys.IsKeyDown(Keys.Space))
@@ -278,7 +288,10 @@ namespace Pong
                 ball.IsStatic = false;
                 ball.LinearVelocity = JVector.Zero;
                 ball.Position = new JVector(0f, 9f, 18f);
-                ball.AddForce(new JVector(0f, 1000f, -10000f));
+
+                float x_variation = (float)(generator.Next(6000) - 3000);
+
+                ball.AddForce(new JVector(x_variation, 1000f, -10000f));
             }
 
                                     
